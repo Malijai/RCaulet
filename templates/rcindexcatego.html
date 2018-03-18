@@ -1,0 +1,51 @@
+{% extends 'RC_basecatego.html' %}
+{% load i18n %}
+
+
+
+{% block titre %}
+
+ <h2>Productions artistiques : {{ categorie.nom }}</h2>
+{% endblock titre %}
+
+
+
+{% block grandes1 %}
+    {% for oeuvre in oeuvres %}
+    <div class="w3-row">
+
+        <div class="w3-col s2 w3-dark-grey w3-center">
+            <h2>{{ oeuvre.titre }}</h2>
+             <h3> {{ oeuvre.periode }}</h3>
+            <p>{{ oeuvre.texte|safe }}</p>
+        </div>
+
+        <div class="w3-col s4 ">
+            <a target="_blank" href="{{ oeuvre.photo.url }}">
+                <img class="maison-image" src="{{ oeuvre.photo.url }}" alt="{{ oeuvre.titre }}" style="width:100%">
+            </a>
+        </div>
+
+        {% for enfant in oeuvre.enfants.all %}
+            {% if enfant %}
+                <div class="w3-col s2">
+                    <a target="_blank" href="{{ enfant.photo.url }}">
+                        <img class="maison-image" src="{{ enfant.photo.url }}" alt="{{ enfant.titre }}" style="width:100%">
+                    </a>
+                </div>
+            {% else %}
+                <div class="w3-col s6">
+                 </div>
+            {% endif %}
+         {% endfor %}
+    </div>
+    {% endfor %}
+
+{% endblock grandes1 %}
+
+
+
+
+
+
+

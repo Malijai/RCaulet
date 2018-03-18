@@ -1,17 +1,21 @@
 from django.contrib import admin
 
-from .models import Categorie, Oeuvre
+from .models import Categorie, Oeuvre, Theme
+
 
 class OeuvreAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Informations', {'fields': ['titre','periode', 'texte','dimension',]}),
-        ('Classification', {'fields': ['categorie', 'ordre',]}),
-        ('Fichiers', {'fields': ['photo', 'livret', ]}),
+        ('Classification', {'fields': [('categorie', 'theme', 'ordre'),]}),
+        ('Fichiers', {'fields': [('photo', 'livret'),]}),
+        ('Parent', {'fields': ['parent']}),
     ]
 
-    list_display = ('categorie', 'titre','periode')
+
+    list_display = ('titre','periode')
 
     list_filter = ['categorie','periode']
+
 
     def save_model(self, request, obj, form, change):
         obj.save()
@@ -19,3 +23,5 @@ class OeuvreAdmin(admin.ModelAdmin):
 
 admin.site.register(Oeuvre, OeuvreAdmin)
 admin.site.register(Categorie)
+admin.site.register(Theme)
+

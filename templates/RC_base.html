@@ -1,0 +1,104 @@
+{% load i18n %}
+{% load static %}
+<html>
+<title>Robert Caulet</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css">-->
+    <link rel="stylesheet" href="{% static 'RCaulet/w3.css' %}">
+    <link rel="stylesheet" href="{% static 'RCaulet/w3-theme-black.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+<body>
+
+
+<!-- Side Navigation -->
+<!-- Sidebar -->
+  <nav class="w3-sidebar w3-bar-block w3-border-right w3-grey" style="display:none" id="mySidebar">
+  <button onclick="w3_close()" class="w3-bar-item w3-large">Fermer &times;</button>
+  <a href="{% url 'rcindexcatego' 4 %}"  class="w3-bar-item w3-button">Crayon & Fusain</a>
+  <a href="{% url 'rcindexcatego' 3 %}"  class="w3-bar-item w3-button">Huile</a>
+  <a href="{% url 'rcindexcatego' 2 %}"  class="w3-bar-item w3-button">Aquarelle</a>
+  <a href="{% url 'rcindexcatego' 1 %}"  class="w3-bar-item w3-button">Modellage</a>
+  <a href="{% url 'rcindexcatego' 5 %}" class="w3-bar-item w3-button">Illustrations</a>
+
+</nav>
+
+
+<!-- Header -->
+<header class="w3-container w3-theme w3-padding" id="myHeader">
+  <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i>
+  <div class="w3-center">
+  <h4>Productions artistiques</h4>
+  <h1 class="w3-xxxlarge w3-animate-bottom">Robert Caulet</h1>
+    <div class="w3-padding-32">
+      <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">1906-1984</button>
+    </div>
+  </div>
+</header>
+
+<!-- Modal -->
+<div id="id01" class="w3-modal">
+    <div class="w3-modal-content w3-card-4 w3-animate-top">
+      <header class="w3-container w3-theme-l1">
+        <span onclick="document.getElementById('id01').style.display='none'"
+        class="w3-button w3-display-topright">×</span>
+        <h4>Né le 14 février 1906 à Marseille</h4>
+        <h4>Mort le 29 février 1984 à Marseille</h4>
+      </header>
+    </div>
+</div>
+<!-- fin du Modal -->
+
+<div class="w3-container w3-padding-16">
+<div class="w3-row-padding w3-center w3-margin-top">
+
+    {% block grandes1 %}
+
+    {% endblock %}
+</div>
+
+<div class="w3-row-padding w3-center w3-margin-top">
+    {% block grandes2 %}
+
+    {% endblock %}
+</div>
+
+<hr />
+
+<div class="w3-row-padding w3-center w3-margin-top">
+    {% block livre %}
+
+    {% endblock %}
+</div>
+
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-16">
+   <h5>Projet réalisé en  <img src="/static/images/django.png" height="32px">
+      disponible ici <a href="https://github.com/Malijai/RCaulet/" class="date" ><img src="/static/images/GitHub-Mark-Light-32px.png"></a>
+  Thème inspiré de <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></h5>
+  <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
+    <span class="w3-text w3-theme-light w3-padding">Haut</span>
+    <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
+    <i class="fa fa-chevron-circle-up"></i></span></a>
+  </div>
+
+</footer>
+
+<!-- Script for Sidebar, Accordions, -->
+<script>
+// Side navigation
+
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
