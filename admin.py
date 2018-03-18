@@ -12,7 +12,7 @@ class OeuvreAdmin(admin.ModelAdmin):
     ]
 
 
-    list_display = ('titre','periode')
+    list_display = ('titre','periode','photo','livret','ordre','parent')
 
     list_filter = ['categorie','periode']
 

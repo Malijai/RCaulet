@@ -25,5 +25,14 @@ def listing(request):
 def parcategorie(request, catego):
     parents = Oeuvre.objects.filter(categorie__id=catego).filter(parent__id=0).filter(id__gt=0)
     categorie = Categorie.objects.get(id=catego)
-    return render(request, 'rcindexcatego.html', {'oeuvres': parents, 'categorie': categorie} )
+    if categorie.id == 5:
+        return render(request, 'rcindexlivrets.html', {'oeuvres': parents} )
+    else:
+        return render(request, 'rcindexcatego.html', {'oeuvres': parents, 'categorie': categorie} )
+
+def slideshow(request, oeuvre):
+    parents = Oeuvre.objects.filter(id= oeuvre)
+    return render(request, 'rcslide.html', {'oeuvres': parents,} )
+
+
 

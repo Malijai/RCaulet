@@ -1,0 +1,39 @@
+{% extends 'RC_basecatego.html' %}
+{% load i18n %}
+{% load thumbnail %}
+
+
+{% block titre %}
+
+ <h2>Productions artistiques : Illustrations</h2>
+
+{% endblock titre %}
+
+
+
+{% block  grandes1 %}
+    {% for oeuvre in oeuvres %}
+    <div class="w3-row">
+        <div class="w3-quarter w3-center">
+        </div>
+        <div class="w3-quarter w3-dark-grey w3-center">
+            <h2>{{ oeuvre.titre }}</h2>
+            <h3> {{ oeuvre.periode }}</h3>
+            <p>{{ oeuvre.texte|safe }}</p>
+            <p>Cliquer sur l'image pour voir le livret au complet</p>
+        </div>
+
+        <div class="w3-quarter ">
+            <a target="_blank" href="{% url 'rcslide'  oeuvre.id %}">
+               <img class="maison-image" src="{% thumbnail oeuvre.livret '1920' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+            <!--<img class="maison-image" src="{{ oeuvre.photo.url }}" alt="{{ oeuvre.titre }}" style="width:100%"/>-->
+            </a>
+        </div>
+        <div class="w3-quarter w3-center">
+        </div>
+
+    </div>
+    {% endfor %}
+
+{% endblock grandes1 %}
+
