@@ -1,6 +1,6 @@
 {% extends 'RC_basecatego.html' %}
 {% load i18n %}
-{% load thumbnail %}
+<!--{% load thumbnail %}-->
 
 
 {% block titre %}
@@ -22,8 +22,8 @@
 
         <div class="w3-col s4 ">
             <a target="_blank" href="{{ oeuvre.photo.url }}">
-               <img class="maison-image" src="{% thumbnail oeuvre.photo '1920' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
-            <!--<img class="maison-image" src="{{ oeuvre.photo.url }}" alt="{{ oeuvre.titre }}" style="width:100%"/>-->
+            <!--<img class="maison-image" src="{% thumbnail oeuvre.photo '1920' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>-->
+            <img class="maison-image" src="{{ oeuvre.photo.url }}" alt="{{ oeuvre.titre }}" style="width:100%"/>
             </a>
         </div>
 
@@ -31,8 +31,8 @@
             {% if enfant %}
                 <div class="w3-col s2">
                     <a target="_blank" href="{{ enfant.photo.url }}">
-                         <img  class="maison-image" src="{% thumbnail enfant.photo '640' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
-                     <!--<img class="maison-image" src="{{ enfant.photo.url }}" alt="{{ enfant.titre }}" style="width:100%"/>-->
+                      <!--<img  class="maison-image" src="{% thumbnail enfant.photo '640' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>-->
+                     <img class="maison-image" src="{{ enfant.photo.url }}" alt="{{ enfant.titre }}" style="width:100%"/>
                     </a>
                 </div>
             {% else %}

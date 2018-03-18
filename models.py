@@ -42,6 +42,8 @@ class Oeuvre(models.Model):
     theme = models.ForeignKey(Theme, verbose_name="Thème principal de l'oeuvre (va être utilisé pour déterminer l'affichage)", on_delete=models.DO_NOTHING)
     dimension = models.CharField(verbose_name="Dimensions", max_length=250, blank=True, null=True, )
     parent = models.ForeignKey("self", default=1, on_delete=models.DO_NOTHING, related_name='enfants')
+#    photo = models.ImageField(upload_to="images", verbose_name="Pour les fichiers d'images", blank=True, null=True)
+#    livret = models.ImageField(upload_to='RC', verbose_name="Pour les pdf", blank=True, null=True)
     photo = ImageField(upload_to="images", verbose_name="Pour les fichiers d'images", blank=True, null=True)
     livret = ImageField(upload_to='RC', verbose_name="Pour les pdf", blank=True, null=True)
 
