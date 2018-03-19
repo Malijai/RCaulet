@@ -17,13 +17,13 @@ def listing(request):
 #    except EmptyPage:
             # If page is out of range (e.g. 9999), deliver last page of results.
 #            oeuvres = paginator.page(paginator.num_pages)
-    oeuvres = Oeuvre.objects.filter(parent__id=0).filter(id__gt=0)
+    oeuvres = Oeuvre.objects.filter(parent__id=1).filter(id__gt=1)
 
     return render(request, 'rcindex.html', {'oeuvres': oeuvres}, )
 
 
 def parcategorie(request, catego):
-    parents = Oeuvre.objects.filter(categorie__id=catego).filter(parent__id=0).filter(id__gt=0)
+    parents = Oeuvre.objects.filter(categorie__id=catego).filter(parent__id=1).filter(id__gt=1)
     categorie = Categorie.objects.get(id=catego)
     if categorie.id == 5:
         return render(request, 'rcindexlivrets.html', {'oeuvres': parents} )

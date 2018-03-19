@@ -1,6 +1,6 @@
 {% extends 'RC_basecatego.html' %}
 {% load i18n %}
-<!--{% load thumbnail %}-->
+{% load thumbnail %}
 
 
 {% block titre %}
@@ -25,8 +25,8 @@
 
         <div class="w3-quarter ">
             <a target="_blank" href="{% url 'rcslide'  oeuvre.id %}">
-            <!--<img class="maison-image" src="{% thumbnail oeuvre.livret '1920' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>-->
-            <img class="maison-image" src="{{ oeuvre.livret.url }}" alt="{{ oeuvre.titre }}" style="width:100%"/>
+            <img class="maison-image" src="{% thumbnail oeuvre.livret '1920' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+            <!--<img class="maison-image" src="{{ oeuvre.livret.url }}" alt="{{ oeuvre.titre }}" style="width:100%"/>-->
             </a>
         </div>
         <div class="w3-quarter w3-center">
