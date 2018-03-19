@@ -4,28 +4,23 @@
 
 
 {% block titre %}
-
- <h2>Productions artistiques : Illustrations </h2>
-
+    <h2>Productions artistiques : Illustrations </h2>
 {% endblock titre %}
 
 
 {% block  grandes1 %}
 
-        <div class="w3-quarter w3-dark-grey w3-center">
-        </div>
-
+    <div class="w3-quarter w3-dark-grey w3-center">
+    </div>
         <div class="w3-half ">
         {% for oeuvre in oeuvres %}
-            <!--<img class="mySlides" src="{{ oeuvre.livret.url }}" alt="{{ oeuvre.titre }}" style="width:100%"/>-->
-           <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+            <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
             {% for enfant in oeuvre.enfants.all %}
-             <!--<img class="mySlides" src="{{ enfant.livret.url }}" alt="{{ oeuvre.titre }}" style="width:100%"/>-->
-           <img  class="mySlides" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
-        {% endfor %}
+                <img  class="mySlides" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+            {% endfor %}
         </div>
-        <div class="w3-quarter w3-dark-grey w3-center">
-        </div>
+    <div class="w3-quarter w3-dark-grey w3-center">
+    </div>
 
     {% endfor %}
 

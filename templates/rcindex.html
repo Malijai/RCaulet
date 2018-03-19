@@ -7,25 +7,21 @@
 
 {% for oeuvre in oeuvres %}
 
- <!--        <div class="w3-third">
-            <div class="w3-container w3-cell w3-mobile"> -->
-
-<div class="w3-third">
-    <div class="w3-card-4" style="width:100%;">
-        <header class="w3-container w3-dark-gray">
+    <div class="w3-third">
+        <div class="w3-card-4" style="width:100%;">
+            <header class="w3-container w3-dark-gray">
                 <h3>{{ oeuvre.titre }}</h3>
-        </header>
-        <div class="w3-container">
-            <img class="w3-image" src="{% thumbnail oeuvre.photo '640' as im %}{{ im.url }}{% endthumbnail %}" style="height:300px;" alt="{{ oeuvre.titre }}">
-           <!--  <img class="w3-image" src="{{ oeuvre.photo.url }}" style="height:300px;" alt="{{ oeuvre.titre }}">-->
+            </header>
+            <div class="w3-container">
+                <a href="{% url 'rcindexcatego' oeuvre.categorie_id %}"><img class="w3-image" src="{% thumbnail oeuvre.photo '640' as im %}{{ im.url }}{% endthumbnail %}" style="height:300px;" alt="{{ oeuvre.titre }}">
+                </a>
+            </div>
+            <footer class="w3-container w3-gray">
+                <p>{{oeuvre.categorie.nom}} - {{ oeuvre.periode }}</p>
+            </footer>
+         </div>
+    </div>
 
-        </div>
-        <footer class="w3-container w3-gray">
-            <p>{{oeuvre.categorie.nom}} - {{ oeuvre.periode }}</p>
-        </footer>
-     </div>
-</div>
-
-    {% endfor %}
+{% endfor %}
 
 {% endblock grandes1 %}

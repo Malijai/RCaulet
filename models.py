@@ -45,7 +45,7 @@ class Oeuvre(models.Model):
 #    photo = models.ImageField(upload_to="images", verbose_name="Pour les fichiers d'images", blank=True, null=True)
 #    livret = models.ImageField(upload_to='RC', verbose_name="Pour les pdf", blank=True, null=True)
     photo = ImageField(upload_to="images", verbose_name="Pour les fichiers d'images", blank=True, null=True)
-    livret = ImageField(upload_to='RC', verbose_name="Pour les pdf", blank=True, null=True)
+    livret = ImageField(upload_to='RC', verbose_name="Pour les pages des livrets", blank=True, null=True)
 
 
     class Meta:
