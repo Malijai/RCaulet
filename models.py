@@ -58,3 +58,4 @@ class Oeuvre(models.Model):
         return u'%s' % self.titre
 
 #ValueError: The database backend does not accept 0 as a value for AutoField.
+# Avant de mettre des données dans les BD faire: ALTER DATABASE db_name DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci

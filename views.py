@@ -5,21 +5,10 @@ from RCaulet.models import Oeuvre, Categorie
 
 
 def listing(request):
-#    if request.user.is_authenticated:
-    oeuvres = Oeuvre.objects.all()
-#    paginator = Paginator(oeuvres_list, 5) # Show 5 post par page
-#    page = request.GET.get('page')
-#    try:
-#        oeuvres = paginator.page(page)
-#    except PageNotAnInteger:
-#            # If page is not an integer, deliver first page.
-#            oeuvres = paginator.page(1)
-#    except EmptyPage:
-            # If page is out of range (e.g. 9999), deliver last page of results.
-#            oeuvres = paginator.page(paginator.num_pages)
+    categories = Categorie.objects.all()
     oeuvres = Oeuvre.objects.filter(parent__id=1).filter(id__gt=1)
 
-    return render(request, 'rcindex.html', {'oeuvres': oeuvres}, )
+    return render(request, 'rcindex.html', {'oeuvres': oeuvres, 'categories': categories}, )
 
 
 def parcategorie(request, catego):
