@@ -2,22 +2,21 @@
 {% load i18n %}
 {% load thumbnail %}
 
-
 {% block titre %}
     <h2>Productions artistiques : Illustrations</h2>
 {% endblock titre %}
-
 
 {% block  grandes1 %}
     {% for oeuvre in oeuvres %}
     <div class="w3-row">
         <div class="w3-quarter w3-center">
         </div>
-        <div class="w3-quarter w3-dark-grey w3-center" style="padding-left:5px;">
+        <div class="w3-quarter w3-dark-grey w3-center"  id="C{{ oeuvre.id }}" style="padding-left:5px;">
             <h2 class="w3-center">{{ oeuvre.titre }}</h2>
             <h3 class="w3-center">{{ oeuvre.periode }}</h3>
+            <a href="{% url 'rcslide'  oeuvre.id %}"  class="fa fa-eye w3-xlarge w3-button w3-theme"></a>
+
             <p>{{ oeuvre.texte|safe }}</p>
-            <p>Cliquer sur l'image pour voir le livret au complet</p>
         </div>
 
         <div class="w3-quarter ">
