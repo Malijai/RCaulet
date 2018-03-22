@@ -7,18 +7,26 @@
 {% endblock titre %}
 
 {% block  grandes1 %}
-    <div class="w3-quarter w3-dark-grey w3-center">
-    </div>
-        <div class="w3-half ">
-        {% for oeuvre in oeuvres %}
-            <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+    {% for oeuvre in oeuvres %}
+        {% if oeuvre.livret.width > oeuvre.livret.height %}
+         <div class="w3-container">
+            <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
             {% for enfant in oeuvre.enfants.all %}
-                <img  class="mySlides" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+                <img  class="mySlides" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
             {% endfor %}
         </div>
-    <div class="w3-quarter w3-dark-grey w3-center">
-    </div>
-        {% endfor %}
-
+        {% else %}
+        <div class="w3-quarter w3-dark-grey w3-center">
+        </div>
+            <div class="w3-half">
+                <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
+                {% for enfant in oeuvre.enfants.all %}
+                    <img  class="mySlides" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
+                {% endfor %}
+            </div>
+        <div class="w3-quarter w3-dark-grey w3-center">
+        </div>
+        {% endif %}
+    {% endfor %}
 {% endblock grandes1 %}
 
