@@ -13,11 +13,9 @@
 <!-- Sidebar -->
   <nav class="w3-sidebar w3-bar-block w3-border-right w3-grey" style="display:none" id="mySidebar">
   <button onclick="w3_close()" class="w3-bar-item w3-large">Fermer &times;</button>
-  <a href="{% url 'rcindexcatego' 4 %}"  class="w3-bar-item w3-button">Crayon & Fusain</a>
-  <a href="{% url 'rcindexcatego' 3 %}"  class="w3-bar-item w3-button">Huile</a>
-  <a href="{% url 'rcindexcatego' 2 %}"  class="w3-bar-item w3-button">Aquarelle</a>
-  <a href="{% url 'rcindexcatego' 1 %}"  class="w3-bar-item w3-button">Modellage</a>
-  <a href="{% url 'rcindexcatego' 5 %}" class="w3-bar-item w3-button">Illustrations</a>
+  {% for categorie in categories %}
+      <a href="{% url 'rcindexcatego' categorie.id %}"  class="w3-bar-item w3-button">{{ categorie.nom }}</a>
+  {% endfor %}
 </nav>
 
 <!-- Header -->

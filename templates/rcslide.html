@@ -3,12 +3,11 @@
 {% load thumbnail %}
 
 {% block titre %}
-    <h2>Productions artistiques : Illustrations</h2>
+    <h2>Productions artistiques : {{ oeuvre.categorie.nom }}</h2>
 {% endblock titre %}
 
 {% block  grandes1 %}
-    {% for oeuvre in oeuvres %}
-        {% if oeuvre.livret.width > oeuvre.livret.height %}
+       {% if oeuvre.livret.width > oeuvre.livret.height %}
          <div class="w3-container">
             <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
             {% for enfant in oeuvre.enfants.all %}
@@ -27,6 +26,6 @@
         <div class="w3-quarter w3-dark-grey w3-center">
         </div>
         {% endif %}
-    {% endfor %}
+
 {% endblock grandes1 %}
 

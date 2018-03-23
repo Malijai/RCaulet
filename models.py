@@ -8,7 +8,14 @@ from sorl.thumbnail import ImageField
 
 
 class Categorie(models.Model):
+    AL = 1
+    AO = 2
+    PAS = 3
+    AFFICHAGE_CHOICES = ((AL, 'Affichage Livret'),
+                           (AO, 'Affichage Oeuvre'),
+                           (PAS, "Pas d'affichage"), )
     nom = models.CharField(max_length=200, unique=True)
+    livret = models.PositiveSmallIntegerField(choices=AFFICHAGE_CHOICES, verbose_name="Choisir le mode d'affichage de la catégorie" )
 
     class Meta:
        ordering = ['nom']
@@ -34,7 +41,7 @@ class Theme(models.Model):
 
 
 class Oeuvre(models.Model):
-    titre = models.CharField(verbose_name="Titre de l'oeuvre s'il y en a un", max_length=250, blank=True, null=True, )
+    titre = models.CharField(verbose_name="Titre de l'oeuvre s'il y en a un", max_length=250 )
     ordre = models.IntegerField(verbose_name="Ordre dans sa categorie (optionnel)", blank=True, null=True, )
     texte = RichTextField(verbose_name="Description ou commentaires sur l'oeuvre",config_name='billet', blank=True, null=True, )
     periode = models.CharField(verbose_name="Année ou période", max_length=250, blank=True, null=True, )
