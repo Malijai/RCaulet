@@ -19,12 +19,12 @@
 </nav>
 
 <!-- Header -->
-<header class="w3-container w3-theme w3-padding" id="myHeader">
+<header class="w3-container w3-theme" id="myHeader">
   <i onclick="w3_open()" class="fa fa-bars w3-xlarge w3-button w3-theme"></i>
   <div class="w3-center">
   <h4>Productions artistiques</h4>
   <h1 class="w3-xxxlarge w3-animate-bottom">Robert Caulet</h1>
-    <div class="w3-padding-32">
+    <div class="w3-padding-16">
       <button class="w3-btn w3-xlarge w3-dark-grey w3-hover-light-grey" onclick="document.getElementById('id01').style.display='block'" style="font-weight:900;">1906-1984</button>
     </div>
   </div>
@@ -42,30 +42,27 @@
     </div>
 </div>
 <!-- fin du Modal -->
-    <div class="w3-container  w3-center w3-padding-16">
-    <p>Mettre un texte de présentation ou quelque chose ici... <br>
-        Peut être faire une page complète d'explications??</p>
+    <div class="w3-container  w3-center w3-padding">
+        <p>Robert Alexandre Caulet était un artiste peintre, professeur de dessin, militant politique de gauche, résistant en Corrèze.
+        <a href="https://fr.wikipedia.org/wiki/Robert_Alexandre_Caulet" target="_blank">Voir sur wikipedia.</a>
+        Ce site est consacré à son œuvre artistique, parfois directement liée à son activité politique.
+        Il présente certaines de ses productions en tant que dessinateur, peintre et plasticien.</p>
+        <p>Les contributions de celles et ceux qui possèdent un dessin ou un tableau signé Robert Caulet sont les bienvenues</p>
+        <p><a href="mailto:Laurent@robert-caulet.malijai.org?subject=Robert%20Caulet%20oeuvres">Contact</a></p>
     </div>
-<div class="w3-container w3-padding-16">
-<div class="w3-row-padding w3-center w3-margin-top">
-    {% block grandes1 %}
-
-    {% endblock %}
-</div>
 
     <div class="w3-row-padding w3-center w3-margin-top">
-        {% block livre %}
+        {% block grandes1 %}
 
         {% endblock %}
     </div>
-</div>
 
 <!-- Footer -->
-<footer class="w3-container w3-dark-grey w3-padding-16">
+<footer class="w3-container w3-dark-grey w3-padding">
    <h5>Projet réalisé en  <img src="/static/images/django.png" height="32px">
       disponible ici <a href="https://github.com/Malijai/RCaulet/" class="date" ><img src="/static/images/GitHub-Mark-Light-32px.png"></a>
-  Thème inspiré de <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></h5>
-    <h4>Contact / infos etc...</h4>
+  Thème inspiré de <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a> -
+       <a href="mailto:Laurent@robert-caulet.malijai.org?subject=Robert%20Caulet%20oeuvres">Contact et informations</a></h5>
   <div style="position:relative;bottom:55px;" class="w3-tooltip w3-right">
     <span class="w3-text w3-theme-light w3-padding">Haut</span>
     <a class="w3-text-white" href="#myHeader"><span class="w3-xlarge">
