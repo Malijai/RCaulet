@@ -22,7 +22,7 @@ def parcategorie(request, catego):
 
 def slideshow(request, oeuvre):
     parent = Oeuvre.objects.get(id=oeuvre)
-    categories = Categorie.exclude(livret=Categorie.PAS)
+    categories = Categorie.objects.exclude(livret=Categorie.PAS)
     return render(request, 'rcslide.html', {'oeuvre': parent, 'categories': categories} )
 
 
