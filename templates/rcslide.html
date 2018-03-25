@@ -2,30 +2,26 @@
 {% load i18n %}
 {% load thumbnail %}
 
-{% block titre %}
-    <h2>Productions artistiques : {{ oeuvre.categorie.nom }}</h2>
-{% endblock titre %}
-
 {% block  grandes1 %}
-       {% if oeuvre.livret.width > oeuvre.livret.height %}
+    {% if oeuvre.livret.width > oeuvre.livret.height %}
          <div class="w3-container">
-            <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
+            <img class="mySlides w3-image" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
             {% for enfant in oeuvre.enfants.all %}
-                <img  class="mySlides" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
+                <img  class="mySlides w3-image" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
             {% endfor %}
         </div>
         {% else %}
-        <div class="w3-quarter w3-dark-grey w3-center">
+        <div class="w3-col m2 w3-dark-grey w3-center">
         </div>
-            <div class="w3-half">
-                <img class="mySlides" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
+            <div class="w3-col m8">
+                <img class="mySlides w3-image" src="{% thumbnail oeuvre.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
                 {% for enfant in oeuvre.enfants.all %}
-                    <img  class="mySlides" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
+                    <img  class="mySlides w3-image" src="{% thumbnail enfant.livret '800' as im %}{{ im.url }}{% endthumbnail %}" style="width:100%"/>
                 {% endfor %}
             </div>
-        <div class="w3-quarter w3-dark-grey w3-center">
+        <div class="w3-col m2 w3-dark-grey w3-center">
         </div>
-        {% endif %}
+    {% endif %}
 
 {% endblock grandes1 %}
 
