@@ -13,10 +13,9 @@
         <div class="w3-quarter w3-center">
         </div>
         <div class="w3-quarter w3-dark-grey w3-center"  id="C{{ oeuvre.id }}" style="padding-left:5px;">
-            <h2 class="w3-center">{{ oeuvre.titre }}</h2>
-            <h3 class="w3-center">{{ oeuvre.periode }}</h3>
+            <h3 class="w3-center">{{ oeuvre.titre }}</h3>
+            {% if oeuvre.periode is not None %}<h4 class="w3-center">{{ oeuvre.periode }}</h4>{% endif %}
             <a href="{% url 'rcslide'  oeuvre.id %}"  class="fa fa-eye w3-xlarge w3-button w3-theme"></a>
-
             <p>{{ oeuvre.texte|safe }}</p>
         </div>
 

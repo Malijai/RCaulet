@@ -22,14 +22,13 @@
 .w3-hover-border-theme:hover {border-color:#000000 !important}
 
 .maison-image {
-    border: 1px solid #ddd;
+    border: 1px solid #e4b381;
     border-radius: 4px;
     padding: 5px;
-    width: 150px;
 }
 
 .maison-image:hover {
-    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    box-shadow: 0 0 2px 1px rgb(148, 102, 56);
 }
 
 .w3-row {

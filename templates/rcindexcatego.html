@@ -7,22 +7,26 @@
     {% for oeuvre in oeuvres %}
     <div class="w3-row" id="C{{ oeuvre.id }}">
         <div class="w3-col s2 w3-dark-grey" style="padding-left:5px;">
-            <h2 class="w3-center">{{ oeuvre.titre }}</h2>
-             <h3 class="w3-center"> {{ oeuvre.periode }}</h3>
+            <h3 class="w3-center">{{ oeuvre.titre }}</h3>
+            {% if oeuvre.periode is not None %}<h4 class="w3-center"> {{ oeuvre.periode }}</h4>{% endif %}
             <p>{{ oeuvre.texte|safe }}</p>
         </div>
-    <div class="w3-display-container">
-        <div class="w3-col s4">
+
+        <div class="w3-col s3 ">
+            <div class="w3-display-container">
             <a target="_blank" href="{{ oeuvre.photo.url }}">
-            <img class="maison-image" src="{% thumbnail oeuvre.photo '1920' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+            <img class="maison-image" src="{% thumbnail oeuvre.photo '1920' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%;max-width:1920px"/>
             </a>
-            <div class="w3-display-bottomleft w3-container w3-text-black"><p>&nbsp;&#169; Succession Robert Caulet</p></div>
-      </div>
+            <div class="w3-padding w3-display-bottomleft w3-container w3-text-black"><p>&nbsp;&#169; Succession Robert Caulet</p>
+            </div>
+            </div>
+        </div>
+
        {% for enfant in oeuvre.enfants.all %}
             {% if enfant %}
-                <div class="w3-col s2">
+                <div class="w3-col s2" >
                     <a target="_blank" href="{{ enfant.photo.url }}">
-                      <img  class="maison-image" src="{% thumbnail enfant.photo '640' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
+                    <img  class="maison-image" src="{% thumbnail enfant.photo '640' as im %}{{ im.url }}{% endthumbnail %}"  style="width:100%"/>
                     </a>
                 </div>
             {% else %}
@@ -31,7 +35,7 @@
             {% endif %}
          {% endfor %}
     </div>
-    </div>
+
     {% endfor %}
 
 {% endblock grandes1 %}
